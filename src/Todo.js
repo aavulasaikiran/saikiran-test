@@ -18,6 +18,7 @@ const Todo = () => {
   }, []);
 
   const Complete = id => {
+    console.log(tasks[id]);
     var arr = tasks;
     arr[id].isComplete = true;
     setTasks(arr);
@@ -36,9 +37,14 @@ const Todo = () => {
           <div>
             <p>{t.id}</p>
             <p>{t.isComplete ? t.name.strike() : t.name}</p>
-            <button className="complete-btn" onClick={() => Complete(t.id)}>
-              complete
-            </button>
+
+            {!t.isComplete ? (
+              <button className="complete-btn" onClick={() => Complete(t.id)}>
+                complete
+              </button>
+            ) : (
+              ''
+            )}
             <button className="delete-btn" onClick={() => Delete(t.id)}>
               delete
             </button>
