@@ -25,6 +25,7 @@ const Todo = () => {
   };
 
   const Delete = id => {
+    console.log(tasks[id]);
     var arr = tasks;
     arr.splice(id, 1);
     setTasks(arr);
