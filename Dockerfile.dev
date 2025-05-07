@@ -1,0 +1,16 @@
+# base image
+FROM node:latest
+ # setting up working directory
+WORKDIR /app
+ 
+COPY package*.json ./
+
+COPY . .
+
+# install dependencies
+
+RUN npm install
+
+CMD ["npm","start"]
+
+
